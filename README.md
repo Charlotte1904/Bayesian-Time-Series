@@ -4,7 +4,7 @@ Using Bayesian Inference on Time Series Data
 
 Bayes' Theorem 
 
-![logo](image/bayes.png)
+![logo](image/bayes.png, width = 50)
 
 - The method was invented in the 18th century by an English Presbyterian minister named Thomas Bayes — by some accounts to calculate the probability of God’s existence. 
 
