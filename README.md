@@ -26,11 +26,11 @@ The goal of this repo is to summarize the idea of Frequentist and Bayesian. Baye
 
 - In Bayesian statistics, we having uncertainty surrounding our parameter(s) of interest, and we mathematically capture our priori uncertainty about these parameters in a prior distribution, formally represented as Prob(Parameter). We focus on computing the posterior distribution Prob(Parameter | Data), representing our posteriori uncertainty surrounding the parameter of interest after we have observed data.
 
-- ** Null Hypothesis** :  no significant difference
+  -  Null Hypothesis :  no significant difference
 
-- ** p-value** : probability that the null hypothesis is correct
+  - p-value : probability that the null hypothesis is correct
 
-- ** Confidence Interval** : “if we would have repeated this test many times, and would have calculated a different confidence interval for each case, then in 95% of the times the actual conversion rate would fall within this interval.”
+  - Confidence Interval : “if we would have repeated this test many times, and would have calculated a different confidence interval for each case, then in 95% of the times the actual conversion rate would fall within this interval.”
 
 # Why Bayes Rules ?
 
