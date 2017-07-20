@@ -8,7 +8,7 @@ Bayes' Theorem
 
 - The method was invented in the 18th century by an English Presbyterian minister named Thomas Bayes — by some accounts to calculate the probability of God’s existence. 
 
-** Objective **
+# Objective 
 
 The goal of this repo is to summarize the idea of Frequentist and Bayesian. Bayesian Inference is proven to be powerful in terms of optimization and sampling method. However, it is still not very popular on day-to-day business analytics. I include three different examples using Bayes Inference to analyze enrollment rate, conversion rate, crime rate and taxi pick up rate. We can use Bayesian Inference to do Bayesian A/B Testing and to calculate the best whatever rate by incorporating historical data to the most recent values. Bayesian method weighted for the most recent data and helps to balance out odd days that have extremely low or high values or/and have inconsistent pattern with the rest of the dataset. 
 
@@ -19,7 +19,7 @@ The goal of this repo is to summarize the idea of Frequentist and Bayesian. Baye
 3. Taxi Pick up in New York groupby date and taxi company
 
 
-** Frequentist vs Bayesian ** 
+# Frequentist vs Bayesian 
 
 - In Frequentist statistics, we assume the parameter(s) of interest are fixed constants. We focus on computing the likelihood Prob(Data | Parameter), the probability we see the observed set of data points given the parameter of interest.
 
