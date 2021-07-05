@@ -59,9 +59,9 @@ For Bayesians, probabilities are fundamentally related to their knowledge about 
 
 # Frequentist vs Bayesian 
 
-![bayesvsfreq](/Bayesian-Time-Series/image/bayesvsfreq.png)
+![bayesvsfreq](image/bayesvsfreq.png)
 
-![bayesvsfreq](/Bayesian-Time-Series/image/freqvsbayes.png)
+![bayesvsfreq](image/freqvsbayes.png)
 
 
 ### False Positive Rate
