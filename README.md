@@ -23,6 +23,8 @@ The goal of this repo is to explore and examine two A/B testing/inference framew
 
 In Frequentist statistics, we assume the parameter(s) of interest are fixed constants. We focus on computing the likelihood prob(Data | Parameter), the probability we see the observed set of data points given the parameter of interest.
 
+Significance testing proceeds by formulating a  null hypothesis, a proposition expressing the belief that the observed difference in outcomes is merely due to chance (while in reality the treatment has no effect), and checking if the data we gathered provide sufficient support to reject it.
+
 Methodology
   1. Declare hypotheses. Typically, the null hypothesis is that the new variant is no better than the incumbent. The alternative is the opposite.
   2. Determine a sample size in advance using a [statistical power calculation](https://clincalc.com/stats/samplesize.aspx), unless you’re using [sequential testing approaches](https://en.wikipedia.org/wiki/Sequential_analysis).
@@ -30,9 +32,16 @@ Methodology
   4. Calculate the probability of observing a result at least as extreme as the data under the null hypothesis (p-value). Reject the null hypothesis and deploy the new variant to production if p-value < 5%.
 
 Note:
-Sample size: the calculation of an adequate sample size is a crucial aspect in the design of experiments. Inadequate sample size may lead to inaccurate results. However, if the sample size is too large, time and resources are wasted, often for minimal gain.
 
-Confidence Interval: boundaries interval in which the true conversion rate falls with (say) 95% probability, which roughly means “If we would have repeated this test many times, and would have calculated a different confidence interval for each case, then in 95% of the times the actual conversion rate would fall within this interval.”
+**Sample size**: the calculation of an adequate sample size is a crucial aspect in the design of experiments. Inadequate sample size may lead to inaccurate results. However, if the sample size is too large, time and resources are wasted, often for minimal gain.
+
+For small samples sizes, frequentist estimates are extremely variable; Bayesian estimates remain close to the prior.
+
+**Confidence Interval**: boundaries interval in which the true conversion rate falls with (say) 95% probability, which roughly means “If we would have repeated this test many times, and would have calculated a different confidence interval for each case, then in 95% of the times the actual conversion rate would fall within this interval.”
+
+One implication of this is that if the null were true, the value of our statistic would still fall outside the 95% interval 5% of the time (by definition), and so we would erroneously reject the null 5% of the time. This is what is usually meant by saying that a test is significant at the 5% level: we rejected the null based on our data (but this would happen 5% of the time even if the null were actually true).
+
+
 
 # Bayesian approach
 In Bayesian statistics, we having uncertainty surrounding our parameter(s) of interest, and we mathematically capture our uncertainty about these parameters in a prior distribution, formally represented as prob(Parameter). We focus on computing the posterior distribution prob(Parameter | Data), representing our posteriori uncertainty surrounding the parameter of interest after we have observed data.
@@ -56,25 +65,12 @@ Methodology
 
 For Bayesians, probabilities are fundamentally related to their knowledge about an event. This means, for example, that in a Bayesian view, we can meaningfully talk about the probability that the true conversion rate lies in a given range, and that probability codifies our knowledge of the value based on prior information and/or available data.
 
+Instead of saying “we could not reject the null hypothesis that the conversion rate of A is equal to that of B with a p-value of 0.102,” we can state “there is a 89.1% chance that the conversion rate of A is better than B.”
+
+We can attach business outcomes to each option with a degree of certainty. For example: there is  a 10% chance of losing money (200 thousand) with the new change, and a 89.1% chance of increasing the revenue (660 thousand).
 
 # Frequentist vs Bayesian 
 
 ![bayesvsfreq](image/bayesvsfreq.png)
 
 ![bayesvsfreq](image/freqvsbayes.png)
-
-
-### False Positive Rate
-
-- Testing at alpha = 0.05 means your statistical test yielding a result as extreme or more extreme by random chance (assuming a given null hypothesis is true) occurs with probability 0.05. 
-
-- If you run 26 statistical tests, then an upper bound on the expected number of false positives is 26*0.05 = 1.3.
-
- This means in our above scenario, our data scientist can expect to have at least one false positive result, and unfortunately, the false positive result is the one she reported to her boss.
-
-
-### Interpretability 
-
-Instead of saying “we could not reject the null hypothesis that the conversion rate of A is equal to that of B with a p-value of 0.102,” we can state “there is a 89.1% chance that the conversion rate of A is better than B.”
-
-We can attach business outcomes to each option with a degree of certainty. For example: there is  a 10% chance of losing money (200 thousand) with the new change, and a 89.1% chance of increasing the revenue (660 thousand).
